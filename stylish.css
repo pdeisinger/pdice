@@ -4,95 +4,131 @@
 /*Placeholder for some weird reason */
 body{}
 	
+@font-face
+{
+	font-family: brickFont;
+	src: url(font/FONT.TTF);
+}
+
 body
 {
 	font-family:verdana,helvetica,arial,sans-serif;
-	background-color:#000000;
+	background-color:#FFFFFF;
 }
 
 div#top
 {
 	margin: 0 auto;
 	text-align:center;
-	height:100px;
+	height:150px;
 	width:1200px;
 	border-top-left-radius:15px;
 	border-top-right-radius:15px;
-	background-color:#FF0000;
-	color:#FFFFFF;
-	font-size:80px;
-	letter-spacing:-8px;
+	
+}
+div#topImage
+{
+	height:150px;
+	background-image:url(http://fc03.deviantart.net/fs70/f/2011/204/b/9/umvc3_roster_by_kiradaidohji-d41fyaq.png);
+	border-radius:10px;
+	opacity:0.6;
+	position:relative;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+span#marvelTop
+{
+	position:relative;
+	top:-150px;
+	font-weight:bold;
+	color:#FF0000;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	text-shadow: 3px 3px #000000;
+	font-size:120px;
+	display:block;
+	transform:scale(1.5,1); 
+	-webkit-transform:scale(1.5,1);
+	letter-spacing:-12px;
 }
 div#topNav
 {
 	border-style:solid;
 	border-width:2px;
 	border-color:#000000;
+	border-bottom-width:0px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
 	margin: 0 auto;
 	text-align:center;
-	height:50px;
+	height:60px;
 	width:1200px;
 	background-color:#FFCC33;
 }
 div#container
 {
+	border-style:solid;
+	border-color:black;
+	border-width:2px;
 	text-align:center;
 	width:1200px;
 	height:750px;
 	margin: 0 auto;
-	background-color:#FF0000;
-}
-div#main
-{
-	color:#FFFFFF;
-	font-size:30px;
-	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	height:100%;
-	width:350px;
-	background-image:url(http://i.imgur.com/J9DciKD.jpg);
-	background-repeat:no-repeat;
-	background-size:contain;
-	float:left;
+	background-color:#800000;
 }
 div#leftCol
 {
-	color:#FFFFFF;
-	font-size:30px;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	height:100%;
-	width:350px;
-	background-image:url(http://i.imgur.com/oq8bZSw.jpg);
+	height:600px;
+	width:275px;
+	display:block;
+	background-image:url(http://31.media.tumblr.com/tumblr_m6pvnbej4l1qfxwtoo1_1280.jpg);
 	background-repeat:no-repeat;
-	background-size:contain;
+	background-size:contain cover;
+	background-position:-160px 0px;
+	float:left;
+}
+div#middleCol
+{
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	height:600px;
+	width:275px;
+	background-image:url(http://i.imgur.com/J9DciKD.jpg);
+	background-repeat:no-repeat;
+	background-size:contain cover;
+	background-position:center;
 	float:left;
 }
 div#rightCol
 {
-	color:#FFFFFF;
-	font-size:30px;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	height:100%;
-	width:350px;
+	height:600px;
+	width:275px;
 	background-image:url(http://i.imgur.com/z8RxgDy.jpg);
 	background-repeat:no-repeat;
-	background-size:contain;
+	background-size:contain cover;
+	background-position:-80px 0px;
 	float:left;
 }
 
 div.boxy
 {
+	color:#FFFFFF;
+	font-size:50px;
+	font-family:brickFont;
 	letter-spacing:2px;
 	text-align:center;
 	border-radius:20px;
 	position:relative;
 	margin: 10px;
 	padding: 5px;
+	box-shadow: 10px 10px 5px #333333;
 }
 
 table#nav-menu
 {
 	margin: 0 auto;
-	font-size:25px;
+	padding:12px;
+	font-size:20px;
 	color:#FFFFFF;
 	text-align:center;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -101,6 +137,8 @@ a.nav-table
 {
 	text-decoration:none;
 	color:#FFFFFF;
+	transition:color 1s;
+	
 }
 a.nav-table:hover
 {
