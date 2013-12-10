@@ -4,6 +4,8 @@ $(document).ready(function(){
 	var leftOffset;
 	var origin;
 	var chars = new Array();
+	var enterChar = 0;
+	var leaveChar = 0;
 	
 	$('.boxy').each(function(i) {
 		chars.push(this);
@@ -15,12 +17,6 @@ $(document).ready(function(){
 		chars[j].newSpot = origin + 200; 
 		console.log($(chars[j]).attr('id'));
 	}
-	// 
-	// $(document.body).on("mouseenter", ".nav-table", function(e) {
-	// 	var audio = $('#click')[0];
-	// 	console.log(audio);
-	// 	audio.play();
-	// })
 	
 	$(document.body).on("mouseenter", ".boxy", function(e) {
 		$(this).children().animate({
@@ -42,25 +38,13 @@ $(document).ready(function(){
 			}
 		});	
 	});
-	
+	///eughghghghgh
 	$(document.body).on("mouseenter", ".boxy", function(e) {
-		for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
-			$(chars[i]).animate({ 
-				"left" : chars[i].newSpot + "px"
-			},  {
-				duration: 500, 
-				specialEasing: {}, 
-				complete: function() {
-					// console.log("entering:")
-					// 					console.log($(this).attr('id'));
-				}
-			});
-		}
-	});
-	$(document.body).on("mouseleave", ".boxy", function(e) {
-		for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
-			$(chars[i]).animate({ 
-				"left" : chars[i].originalSpot + "px"
+		enterChar = parseInt($(this).attr("id").substring(5), 10);
+		console.log("enterChar = " + enterChar);
+		if (leaveChar === enterChar + 1) {
+			$(this).animate({ 
+				"left" : this.original + "px"
 			},  {
 				duration: 500, 
 				specialEasing: {}, 
@@ -70,6 +54,55 @@ $(document).ready(function(){
 				}
 			});
 		}
+		else {
+			for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
+				$(chars[i]).animate({ 
+					"left" : chars[i].newSpot + "px"
+				},  {
+					duration: 500, 
+					specialEasing: {}, 
+					complete: function() {
+						// console.log("entering:")
+						// 					console.log($(this).attr('id'));
+					}
+				});
+			}
+		}
+		
+	});
+	$(document.body).on("mouseleave", ".boxy", function(e) {
+		
+		leaveChar = parseInt($(this).attr("id").substring(5), 10);
+		console.log("leaveChar = " + leaveChar);
+		if (leaveChar === enterChar)
+		{
+			$(this).animate({ 
+				"left" : this.originalSpot + "px"
+			},  {
+				duration: 500, 
+				specialEasing: {}, 
+				complete: function() {
+					// console.log("leaving");
+					// 					console.log($(this).attr('id'));
+				}
+			});
+		}
+		else {
+			for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
+
+				$(chars[i]).animate({ 
+					"left" : chars[i].originalSpot + "px"
+				},  {
+					duration: 500, 
+					specialEasing: {}, 
+					complete: function() {
+						// console.log("leaving");
+						// 					console.log($(this).attr('id'));
+					}
+				});
+			}
+		}
+	
 	});
 	
 	
