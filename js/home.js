@@ -24,8 +24,8 @@ $(document).ready(function(){
 				duration: 500, 
 				specialEasing: {}, 
 				complete: function() {
-					console.log("entering:")
-					console.log($(this).attr('id'));
+					// console.log("entering:")
+					// 					console.log($(this).attr('id'));
 				}
 			});
 		}
@@ -38,8 +38,8 @@ $(document).ready(function(){
 				duration: 500, 
 				specialEasing: {}, 
 				complete: function() {
-					console.log("leaving");
-					console.log($(this).attr('id'));
+					// console.log("leaving");
+					// 					console.log($(this).attr('id'));
 				}
 			});
 		}
