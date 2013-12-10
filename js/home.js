@@ -14,7 +14,34 @@ $(document).ready(function(){
 		chars[j].originalSpot = origin;
 		chars[j].newSpot = origin + 200; 
 		console.log($(chars[j]).attr('id'));
-	}	
+	}
+	// 
+	// $(document.body).on("mouseenter", ".nav-table", function(e) {
+	// 	var audio = $('#click')[0];
+	// 	console.log(audio);
+	// 	audio.play();
+	// })
+	
+	$(document.body).on("mouseenter", ".boxy", function(e) {
+		$(this).children().animate({
+			"font-size": "100%"
+		}, {
+			duration: 500, 
+			specialEasing: {}, 
+			complete: function() {
+			}
+		});	
+	});
+	$(document.body).on("mouseleave", ".boxy", function(e) {
+		$(this).children().animate({
+			"font-size": "100%"
+		}, {
+			duration: 500, 
+			specialEasing: {}, 
+			complete: function() {
+			}
+		});	
+	});
 	
 	$(document.body).on("mouseenter", ".boxy", function(e) {
 		for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
