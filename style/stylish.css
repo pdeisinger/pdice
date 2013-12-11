@@ -357,6 +357,32 @@ a.nav-table:hover
 	color:#000000;
 }
 
+/*Players*/
+div#trending
+{
+	float:left;
+	margin-left:10px;
+	border-top-left-radius:25px;
+	border-bottom-left-radius:25px;
+	border-style:solid;
+	border-color:#000000;
+	border-width:2px;
+	height:700px;
+	width:20%;
+	position:relative;
+	background-color:#FFCC33;
+}
+div#main-content
+{
+	float:left;
+	margin-right:10px;
+	border-top-right-radius:25px;
+	border-bottom-right-radius:25px;
+	height:700px;
+	width:78%;
+	position:relative;
+	background-color:#000000;
+}
 
 </style>
 </head>

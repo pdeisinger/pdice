@@ -4,8 +4,6 @@ $(document).ready(function(){
 	var leftOffset;
 	var origin;
 	var chars = new Array();
-	var enterChar = 0;
-	var leaveChar = 0;
 	
 	$('.boxy').each(function(i) {
 		chars.push(this);
@@ -18,92 +16,105 @@ $(document).ready(function(){
 		console.log($(chars[j]).attr('id'));
 	}
 	
-	$(document.body).on("mouseenter", ".boxy", function(e) {
-		$(this).children().animate({
-			"font-size": "100%"
-		}, {
-			duration: 500, 
-			specialEasing: {}, 
-			complete: function() {
-			}
-		});	
-	});
-	$(document.body).on("mouseleave", ".boxy", function(e) {
-		$(this).children().animate({
-			"font-size": "100%"
-		}, {
-			duration: 500, 
-			specialEasing: {}, 
-			complete: function() {
-			}
-		});	
-	});
+	// $(document.body).on("mouseenter", ".boxy", function(e) {
+	// 		$(this).children().animate({
+	// 			"font-size": "100%"
+	// 		}, {
+	// 			duration: 500, 
+	// 			specialEasing: {}, 
+	// 			complete: function() {
+	// 			}
+	// 		});	
+	// 	});
+	// 	$(document.body).on("mouseleave", ".boxy", function(e) {
+	// 		$(this).children().animate({
+	// 			"font-size": "100%"
+	// 		}, {
+	// 			duration: 500, 
+	// 			specialEasing: {}, 
+	// 			complete: function() {
+	// 			}
+	// 		});	
+	// 	});
 	///eughghghghgh
 	$(document.body).on("mouseenter", ".boxy", function(e) {
-		enterChar = parseInt($(this).attr("id").substring(5), 10);
-		console.log("enterChar = " + enterChar);
-		if (leaveChar === enterChar + 1) {
-			$(this).animate({ 
-				"left" : this.original + "px"
+		for (var i = 0; i < (jQuery.inArray(this, chars) + 1); i++) {
+			$(chars[i]).animate({ 
+				"left" : chars[i].originalSpot + "px"
 			},  {
-				duration: 500, 
-				specialEasing: {}, 
+				duration: 250, 
+				specialEasing:{},
 				complete: function() {
-					// console.log("leaving");
+					// console.log("entering:")
 					// 					console.log($(this).attr('id'));
 				}
 			});
 		}
-		else {
-			for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
+		for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
+			//if (chars[i].moved === false) {
 				$(chars[i]).animate({ 
 					"left" : chars[i].newSpot + "px"
 				},  {
-					duration: 500, 
-					specialEasing: {}, 
+					duration: 250, 
+					specialEasing: {
+					}, 
 					complete: function() {
-						// console.log("entering:")
-						// 					console.log($(this).attr('id'));
+						
 					}
 				});
-			}
+				chars[i].moved = true;
+			//}
 		}
-		
 	});
-	$(document.body).on("mouseleave", ".boxy", function(e) {
-		
-		leaveChar = parseInt($(this).attr("id").substring(5), 10);
-		console.log("leaveChar = " + leaveChar);
-		if (leaveChar === enterChar)
-		{
-			$(this).animate({ 
-				"left" : this.originalSpot + "px"
+	$(document.body).on("mouseleave", "#container", function(e) {
+		for (var i = 0; i < chars.length; i++) {
+			$(chars[i]).animate({ 
+				"left" : chars[i].originalSpot + "px"
 			},  {
 				duration: 500, 
 				specialEasing: {}, 
 				complete: function() {
-					// console.log("leaving");
+					// console.log("entering:")
 					// 					console.log($(this).attr('id'));
 				}
 			});
+			chars[i].moved = false;
 		}
-		else {
-			for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
-
-				$(chars[i]).animate({ 
-					"left" : chars[i].originalSpot + "px"
-				},  {
-					duration: 500, 
-					specialEasing: {}, 
-					complete: function() {
-						// console.log("leaving");
-						// 					console.log($(this).attr('id'));
-					}
-				});
-			}
-		}
-	
 	});
+	// $(document.body).on("mouseleave", ".boxy", function(e) {
+	// 		
+	// 		leaveChar = parseInt($(this).attr("id").substring(5), 10);
+	// 		console.log("leaveChar = " + leaveChar);
+	// 		if (leaveChar === enterChar)
+	// 		{
+	// 			$(this).animate({ 
+	// 				"left" : this.originalSpot + "px"
+	// 			},  {
+	// 				duration: 500, 
+	// 				specialEasing: {}, 
+	// 				complete: function() {
+	// 					// console.log("leaving");
+	// 					// 					console.log($(this).attr('id'));
+	// 				}
+	// 			});
+	// 		}
+	// 		else {
+	// 			for (var i = (jQuery.inArray(this, chars) + 1); i < chars.length; i++) {
+	// 
+	// 				$(chars[i]).animate({ 
+	// 					"left" : chars[i].originalSpot + "px"
+	// 				},  {
+	// 					duration: 500, 
+	// 					specialEasing: {}, 
+	// 					complete: function() {
+	// 						// console.log("leaving");
+	// 						// 					console.log($(this).attr('id'));
+	// 					}
+	// 				});
+	// 			}
+	// 		}
+	// 	
+	// 	});
 	
 	
 });
