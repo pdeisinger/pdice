@@ -2,7 +2,17 @@
 <head>
 <link rel="stylesheet" type="text/css" href="file://localhost/Users/phil.deisinger/Documents/TextMate/pdice/style/stylish.css">
 <script language="JavaScript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="file://localhost/Users/phil.deisinger/Documents/TextMate/pdice/js/home.js"></script>  
+<script type="text/javascript" src="file://localhost/Users/phil.deisinger/Documents/TextMate/pdice/js/home.js"></script>
+<script type="text/javascript" src="file://localhost/Users/phil.deisinger/Documents/TextMate/pdice/js/umvc3players.js"></script>
+<script>
+$(document).ready(function() {
+    $('#search_input').on("submit", function(e) {
+        e.preventDefault();
+        var tag = $('#tag_search').val();
+        umvc3players(tag);
+    });
+});
+</script>
 </head>
 
 <body>
@@ -26,20 +36,27 @@
     </div>
     <div id="container">
         <div id="trending">
-            <table id="trending-players">
-                <th>--Top Trending Players--</th>
-                <!--All of these would be ajax'd in-->
-                <tr><td>1.&nbsp; AGE | ChrisG</td></tr>
-                <tr><td>2.&nbsp; EG | Justin Wong</td></tr>
-                <tr><td>3.&nbsp; EMP | Flocker</td></tr>
-                <tr><td>4.&nbsp; Green Ace</td></tr>
-                <tr><td>5.&nbsp; EMP | IFC Yipes</td></tr>
-                <tr><td>6.&nbsp; BT | Clockw0rk</td></tr>
-                <tr><td>7.&nbsp; MRN | Marn</td></tr>
-                <tr><td>8.&nbsp; EG | PR Balrog</td></tr>
-                <tr><td>9.&nbsp; Nemo</td></tr>
-                <tr><td>10.&nbsp;KaneBlueRiver</td></tr>
-            </table>
+            <form id="search_input" name="searchInput" action="" method="get">
+                Tag: <input type="text" id="tag_search">
+                <input type="submit" value="Send">
+            </form>
+            <div id="player_search_results">&nbsp;</div>
+            
+            
+            
+        <!--             <table id="trending-players">
+                        <th>--Top Trending Players--</th>
+                        <tr><td>1.&nbsp; AGE | ChrisG</td></tr>
+                        <tr><td>2.&nbsp; EG | Justin Wong</td></tr>
+                        <tr><td>3.&nbsp; EMP | Flocker</td></tr>
+                        <tr><td>4.&nbsp; Green Ace</td></tr>
+                        <tr><td>5.&nbsp; EMP | IFC Yipes</td></tr>
+                        <tr><td>6.&nbsp; BT | Clockw0rk</td></tr>
+                        <tr><td>7.&nbsp; MRN | Marn</td></tr>
+                        <tr><td>8.&nbsp; EG | PR Balrog</td></tr>
+                        <tr><td>9.&nbsp; Nemo</td></tr>
+                        <tr><td>10.&nbsp;KaneBlueRiver</td></tr>
+                    </table> -->
         </div>
         <div id="main-content"></div>
     </div>
