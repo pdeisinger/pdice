@@ -1,10 +1,11 @@
 <?php
-    $q = $_GET['q'];
-    $conn = pg_connect("dbname=phil.deisinger");
-    if (!$con) {
-        echo "An conn error occurred.\n";
+    $tag = $_GET['tag'];
+    $conn = new PDO('pgsql:host=localhost;dbname=phil.deisinger');
+    if (!$conn) {
+        echo "A conn error occurred.\n";
         exit;
     }
+    
     //Needs functionality to ignore case
     $sql = "SELECT * FROM umvc3players
               WHERE tag LIKE '%$q%'";
@@ -25,6 +26,7 @@
         echo "</tr>";
         $playerNum++;
     }
+    echo "</table>";
 
     pg_close($conn);
 ?>

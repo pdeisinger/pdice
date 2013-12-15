@@ -10,6 +10,6 @@ function umvc3players(tag) {
 			$('#player_search_results').html(xmlhttp.responseText);
 	    }
 	}
-	xmlhttp.open("GET", "file://localhost/Users/phil.deisinger/Documents/TextMate/pdice/classes/umvc3players.php?q=" + tag, true);
+	xmlhttp.open("GET", "file://localhost/Users/phil.deisinger/Documents/TextMate/pdice/classes/umvc3players.php?tag=" + tag, true);
 	xmlhttp.send();
 };
