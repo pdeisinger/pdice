@@ -368,6 +368,7 @@ div#trending
 	border-style:solid;
 	border-color:#000000;
 	border-width:2px;
+	padding: 5px 0px 0px 0px;
 	height:700px;
 	width:20%;
 	position:relative;

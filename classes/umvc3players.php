@@ -1,4 +1,5 @@
 <?php
+    //This entire class could likely be players.php.  Getting the page for the variable to select what Table to pull from
     $tag = $_GET['tag'];
     $conn = new PDO('pgsql:host=localhost;dbname=phil.deisinger');
     if (!$conn) {
