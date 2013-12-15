@@ -1,0 +1,6 @@
+Here be notes:
+
+Template files:
+Need to be categorized by game a la "../templates/umvc3" or "../templates/sf4"
+
+PHP/Ajax:

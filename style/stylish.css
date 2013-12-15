@@ -324,6 +324,7 @@ span.charText
 	transform:rotate(-90deg);
 	-webkit-transform:rotate(-90deg);
 }
+/*These will eventually be combined into the image, right now*/
 span#magnetoText	{right:110px; top:115px;}
 span#novaText		{right:165px; top:60px; }
 span#sentinelText	{right:112px; top:115px;}
@@ -374,14 +375,17 @@ div#trending
 }
 div#main-content
 {
+	border-style:solid;
+	border-color:#000000;
+	border-width:2px 2px 2px 0px;
 	float:left;
 	margin-right:10px;
 	border-top-right-radius:25px;
 	border-bottom-right-radius:25px;
 	height:700px;
-	width:78%;
+	width:77%;
 	position:relative;
-	background-color:#000000;
+	background-color:#FFFFFF;
 }
 
 </style>
