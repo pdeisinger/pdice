@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 	var selected;
 	var leftOriginal;
 	var leftOffset;
